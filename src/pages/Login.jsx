@@ -7,8 +7,6 @@ import image from '../assets/image.jpg'
 import { useSelector, useDispatch } from 'react-redux';
 import {setLoginUsers} from '../redux/slices/login'
 
-
-
 function Login() {
     const careerGlobalState = useSelector((state) => state.login.loginUsers)
     const navigate = useNavigate();
@@ -18,19 +16,12 @@ function Login() {
         password: ""
     })
 
-    
-
     const Save = () => {
         const formData = new FormData();
         formData.append("email", loginDetails.email);
         formData.append("password", loginDetails.password);
 
         axios.post('https://venkadesh1999.pythonanywhere.com/login', formData).then((res) => {
-            console.log(res.data);
-
-
-
-
             if (loginDetails.email && loginDetails.password) {
                 if (res.data.status === "success") {
                     alert("Login Successfull")
@@ -44,13 +35,11 @@ function Login() {
                     navigate('/register')
                 }
             }
-
             else {
                 alert("please fill up")
             }
 
         });
-
     }
 
     return <div style={
@@ -74,17 +63,11 @@ function Login() {
             background: "transparent",
             boxShadow: "0 0 10px"
         }}>
-
             <Form style={{ padding: "45px" }}>
-
                 Email:
-
                 <Form.Control type="email" placeholder="Enter mail Id"  style={{ marginTop: "10px", marginBottom: "16px" }} value={loginDetails.email} onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })} />
-
                 Password:
-
                 <Form.Control type="password"  style={{marginTop: "10px",marginBottom: "16px"}}placeholder="Enter password" value={loginDetails.password} onChange={(e) => setLoginDetails({ ...loginDetails, password: e.target.value })} />
-
                 <Button variant="success"  style={{ textAlign: "center", marginLeft: "170px", marginTop: "20px" }} onClick={Save}>Save</Button>
             </Form>
         </div>

@@ -53,7 +53,6 @@ function CareerGoals() {
         else {
             setSkillDetails("")
             let value = [skillDetails]
-            console.log(value)
             let skills = [...goalsDetails.skill, ...value]
             setGoalDetails({ ...goalsDetails, skill: skills })
         }
@@ -90,7 +89,6 @@ function CareerGoals() {
             formData.append("data", JSON.stringify(goalsDetails));
 
             axios.post('https://venkadesh1999.pythonanywhere.com/user_goal', formData).then((res) => {
-                console.log(res)
             })
             alert("submitted successfully");
             navigate("/show");
@@ -102,7 +100,6 @@ function CareerGoals() {
             .then((res) => {
                 let getData = res.data.data.data
                 setGoalDetails(JSON.parse(getData))
-                console.log(getData)
             })
     }
 

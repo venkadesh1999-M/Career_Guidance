@@ -24,7 +24,6 @@ function Register() {
             formData.append("password", password);
             axios.post("https://venkadesh1999.pythonanywhere.com/register", formData)
                 .then((res) => {
-                    console.log(res)
                     if (res.data.status === "success") {
                         alert("Register Success")
                         setUser({ name: "", email: "", password: "" })
@@ -86,9 +85,7 @@ function Register() {
                         marginTop: "20px"
                     }
                 } variant="danger" onClick={submit}>Register</Button>
-
             </Form>
-
         </Container>
     </div>
 

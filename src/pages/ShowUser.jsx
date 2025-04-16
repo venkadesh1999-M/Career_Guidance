@@ -9,11 +9,9 @@ import Header from './Header';
 function ShowUser() {
 
     let val = JSON.parse(localStorage.getItem("users"))
-
     const navigate = useNavigate()
     const [inputValue, setInputValue] = useState("")
     const [goalValue, setGoalValue] = useState("")
-
     const [userDetails, setuserDetails] = useState({})
     let getVal = { ...userDetails, details: inputValue, goals: goalValue }
     localStorage.setItem("userdetails", JSON.stringify(getVal));

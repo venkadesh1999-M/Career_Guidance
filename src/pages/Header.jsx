@@ -6,9 +6,7 @@ import { useNavigate } from 'react-router';
 import { CIcon } from '@coreui/icons-react';
 import {cilAccountLogout} from '@coreui/icons';
 
-
 function Header(){
-   
     let val = JSON.parse(localStorage.getItem("userdetails")); 
     const navigate = useNavigate()
     const ShowDetails = ()=>{

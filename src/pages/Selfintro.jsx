@@ -31,7 +31,6 @@ function Selfintro() {
 
     axios.get(`https://venkadesh1999.pythonanywhere.com/get_resume/${val.id}`).then((res) => {
       let getData = res.data.data.data
-      console.log(getData)
       setuserInputValue(JSON.parse(getData))
 
     });
@@ -61,14 +60,10 @@ function Selfintro() {
         avoid text outside HTML tags return only the HTML content`;
 
     const result = await model.generateContent(prompt);
-
-
     const responseText = result.response.text().replace(/```html/g, "").replace(/```/g,"");
-    
     setSummary(responseText);
     setLoading(false)
     setRegenerate("upDate")
-    console.log(summary)
   }
 
 

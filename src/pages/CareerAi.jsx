@@ -10,9 +10,7 @@ import { useNavigate } from 'react-router';
 import Header from './Header';
 import axios from 'axios';
 
-
 function CareerAi(){
-
   const [inputValue, setInputValue] = useState("")
   const [goalValue, setGoalValue] = useState("")
   const [userDetails, setuserDetails] = useState({})
@@ -47,9 +45,6 @@ function CareerAi(){
 useEffect(() => {
     getUpdateGoalApi();
 }, []);
-
-
-  // let val = JSON.parse(localStorage.getItem("userdetails")); 
 
         const cx = "84c171dacf1aa43c1"
         const apiKey = "AIzaSyC8kh_wDAmTboxQf3lvjBSChxhiNfjbPdU"

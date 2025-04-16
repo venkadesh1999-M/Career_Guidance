@@ -8,7 +8,6 @@ import Header from './Header';
 
 function Resume() {
     let user = JSON.parse(localStorage.getItem("users"))
-
     const navigate = useNavigate()
     const [skillValue, setSkillValue] = useState([])
     const [languageknownValue, setlanguageknownValue] = useState([])
@@ -220,7 +219,7 @@ function Resume() {
                     <Form.Control style={{ width: "400px",height:"70px", marginLeft: "100px" }} type="objective" value={inputValue.objective} placeholder='enter your objective'
                         onChange={(e) => setInputValue({ ...inputValue, objective: e.target.value })} />
 
-<h4 style={{
+                <h4 style={{
                         marginTop: "20px",
                         marginBottom: "10px",  width: "400px", marginLeft: "100px", color: "white"
                     }}><i>Language</i></h4>

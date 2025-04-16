@@ -69,7 +69,6 @@ function UserDetails() {
             formData.append("data", JSON.stringify(userInputValue))
 
             axios.post('https://venkadesh1999.pythonanywhere.com/user_details', formData).then((res) => {
-                console.log(res)
             });
             navigate("/goal")
         }
@@ -82,7 +81,6 @@ function UserDetails() {
         formData.append("data", JSON.stringify(userInputValue))
 
         axios.post('https://venkadesh1999.pythonanywhere.com/user_details', formData).then((res) => {
-            console.log(res)
         });
         navigate("/show")
     }
@@ -91,7 +89,6 @@ function UserDetails() {
         axios.get(`https://venkadesh1999.pythonanywhere.com/get_userdetails/${val.id}`)
         .then((res) => {
             let getData = res.data.data.data
-            console.log(getData)
             if (getData !== "") {
                 setuserInputValue(JSON.parse(getData));
                 setupdated(true);
