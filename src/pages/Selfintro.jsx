@@ -8,7 +8,6 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Button,Spinner } from 'react-bootstrap';
 
-
 function Selfintro() {
   let val = JSON.parse(localStorage.getItem("users"))
   const cx = "84c171dacf1aa43c1"
@@ -19,17 +18,13 @@ function Selfintro() {
   const [userInputValue, setuserInputValue] = useState(null);
   const [generate,setRegenerate] = useState("generate")
 
-  
-
   useEffect(() => {
     getApi()
   }, [])
 
- 
-
   const getApi = () => {
-
-    axios.get(`https://venkadesh1999.pythonanywhere.com/get_resume/${val.id}`).then((res) => {
+    const headers = {'Authorization' : `Bearer ${val.token}`}
+    axios.get(`https://venkadesh1999.pythonanywhere.com/get_resume/${val.id}`,{headers}).then((res) => {
       let getData = res.data.data.data
       setuserInputValue(JSON.parse(getData))
 
@@ -51,11 +46,9 @@ function Selfintro() {
     responseMimeType: "text/plain",
   };
 
-  
-
   async function run() {
     setLoading(true)
-    const prompt = `Hi, based on the  details how to introduce elaborate selfintroduction:
+    const prompt = `Hi, based on the  details how to introduce elaborate selfintroduction to the interview:
         ${JSON.stringify(userInputValue)}
         avoid text outside HTML tags return only the HTML content`;
 
@@ -65,8 +58,6 @@ function Selfintro() {
     setLoading(false)
     setRegenerate("upDate")
   }
-
-
 
   return <div>
     <h2 style={{ textAlign: "center", color: "black",marginBottom:"20px" }}>Self Introduction</h2>
@@ -95,8 +86,7 @@ function Selfintro() {
           </Button>
       }
       
-
-    <div style={{marginLeft:"300px",marginTop:"30px"}}
+    <div style={{marginLeft:"220px",marginTop:"30px"}}
         dangerouslySetInnerHTML={{ __html: summary }} 
     />
 

@@ -19,13 +19,12 @@ function Login() {
     const Save = () => {
         const formData = new FormData();
         formData.append("email", loginDetails.email);
-        formData.append("password", loginDetails.password);
+        formData.append("password", loginDetails.password); 
 
         axios.post('https://venkadesh1999.pythonanywhere.com/login', formData).then((res) => {
             if (loginDetails.email && loginDetails.password) {
                 if (res.data.status === "success") {
                     alert("Login Successfull")
-                    console.log(res.data.data)
                     dispatch(setLoginUsers(res.data.data))     
                     localStorage.setItem("users", JSON.stringify(res.data.data));        
                     navigate('/details')

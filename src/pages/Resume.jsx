@@ -65,7 +65,6 @@ function Resume() {
 
     const addlanguageValue = () => {
         let b = [...inputValue?.languageknown, languageknownValue]
-        console.log(b)
         setInputValue({ ...inputValue, languageknown: b })
         setlanguageknownValue("")
     }
@@ -155,8 +154,9 @@ function Resume() {
         const formData = new FormData();
         formData.append("user_id", user.id);
         formData.append("data", JSON.stringify(inputValue));
+        const headers = {'Authorization' : `Bearer ${user.token}`}
 
-        axios.post('https://venkadesh1999.pythonanywhere.com/resume', formData).then((res) => {
+        axios.post('https://venkadesh1999.pythonanywhere.com/resume', formData,{headers}).then((res) => {
             console.log(res)
         })
         alert("submit")
@@ -164,16 +164,18 @@ function Resume() {
     }
 
     const getResumeApi = () => {
-        axios.get(`https://venkadesh1999.pythonanywhere.com/get_resume/${user.id}`).then((res) => {
+        const headers = {'Authorization' : `Bearer ${user.token}`}
+        axios.get(`https://venkadesh1999.pythonanywhere.com/get_resume/${user.id}`,{headers}).then((res) => {
             let getData = JSON.parse(res.data.data.data)
             let v = {...inputValue,...getData}
-            console.log(v)
             setInputValue(v)
         });
     };
 
     const getUserDetails = () => {
-        axios.get(`https://venkadesh1999.pythonanywhere.com/get_userdetails/${user.id}`)
+        
+        const headers = {'Authorization' : `Bearer ${user.token}`}
+        axios.get(`https://venkadesh1999.pythonanywhere.com/get_userdetails/${user.id}`,{headers})
         .then((res) => {
             const getData = res.data.data.data
             setInputValue(JSON.parse(getData));

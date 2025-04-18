@@ -67,8 +67,8 @@ function UserDetails() {
             const formData = new FormData();
             formData.append("user_id", val.id);
             formData.append("data", JSON.stringify(userInputValue))
-
-            axios.post('https://venkadesh1999.pythonanywhere.com/user_details', formData).then((res) => {
+            const headers = {'Authorization' : `Bearer ${val.token}`}
+            axios.post('https://venkadesh1999.pythonanywhere.com/user_details', formData,{headers}).then((res) => {
             });
             navigate("/goal")
         }
@@ -79,14 +79,18 @@ function UserDetails() {
         const formData = new FormData();
         formData.append("user_id", val.id);
         formData.append("data", JSON.stringify(userInputValue))
+        const headers = {'Authorization' : `Bearer ${val.token}`}
 
-        axios.post('https://venkadesh1999.pythonanywhere.com/user_details', formData).then((res) => {
+        axios.post('https://venkadesh1999.pythonanywhere.com/user_details', formData,{headers}).then((res) => {
+            console.log(res)
         });
         navigate("/show")
     }
 
     const getUsersdetailsapi = () => {
-        axios.get(`https://venkadesh1999.pythonanywhere.com/get_userdetails/${val.id}`)
+        const headers = {'Authorization' : `Bearer ${val.token}`}
+
+        axios.get(`https://venkadesh1999.pythonanywhere.com/get_userdetails/${val.id}`,{headers})
         .then((res) => {
             let getData = res.data.data.data
             if (getData !== "") {

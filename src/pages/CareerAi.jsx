@@ -24,16 +24,16 @@ function CareerAi(){
   let val = JSON.parse(localStorage.getItem("users"))
 
   const getUpdateGoalApi = () => {
-    axios.get(`https://venkadesh1999.pythonanywhere.com/get_userdetails/${val.id}`)
+    const headers = {'Authorization' : `Bearer ${val.token}`}
+    axios.get(`https://venkadesh1999.pythonanywhere.com/get_userdetails/${val.id}`,{headers})
         .then((res) => {
             if (res.data.data.data) {
                 const getData = JSON.parse(res.data.data.data);
-                console.log(getData)
                 setInputValue(getData);
             }
         })
 
-    axios.get(`https://venkadesh1999.pythonanywhere.com/get_usergoal/${val.id}`)
+    axios.get(`https://venkadesh1999.pythonanywhere.com/get_usergoal/${val.id}`,{headers})
         .then((res) => {
             if (res.data.data.data) {
                 const getDatas = JSON.parse(res.data.data.data);

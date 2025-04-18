@@ -87,8 +87,8 @@ function CareerGoals() {
             const formData = new FormData();
             formData.append("user_id", user.id);
             formData.append("data", JSON.stringify(goalsDetails));
-
-            axios.post('https://venkadesh1999.pythonanywhere.com/user_goal', formData).then((res) => {
+            const headers = {'Authorization' : `Bearer ${user.token}`}
+            axios.post('https://venkadesh1999.pythonanywhere.com/user_goal', formData,{headers}).then((res) => {
             })
             alert("submitted successfully");
             navigate("/show");
@@ -96,7 +96,9 @@ function CareerGoals() {
     }
 
     const getgoalDetailsApi = () => {
-        axios.get(`https://venkadesh1999.pythonanywhere.com/get_usergoal/${user.id}`)
+        const headers = {'Authorization' : `Bearer ${user.token}`}
+
+        axios.get(`https://venkadesh1999.pythonanywhere.com/get_usergoal/${user.id}`,{headers})
             .then((res) => {
                 let getData = res.data.data.data
                 setGoalDetails(JSON.parse(getData))
@@ -104,7 +106,9 @@ function CareerGoals() {
     }
 
     const getUpdateGoalApi = () => {
-        axios.get(`https://venkadesh1999.pythonanywhere.com/get_userdetails/${user.id}`)
+        const headers = {'Authorization' : `Bearer ${user.token}`}
+
+        axios.get(`https://venkadesh1999.pythonanywhere.com/get_userdetails/${user.id}`,{headers})
             .then((res) => {
                 if (res.data.data.data) {
                     const getData = JSON.parse(res.data.data.data);
