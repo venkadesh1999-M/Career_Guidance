@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import image from '../assets/free-career-guidance.jpg';
+import { CIcon } from '@coreui/icons-react';
+import {cilAccountLogout} from '@coreui/icons';
+
 
 function Menupage() {
   return (
@@ -13,7 +16,16 @@ function Menupage() {
               <Link className="nav-link" style={{ color: "white" }} to="/register">Sign Up</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" style={{ color: "white" }} to="/login">Login</Link>
+              <Link className="nav-link" style={{ color: "white" }} to="/login">
+               <CIcon icon={cilAccountLogout} size="sm"  
+                      style={
+                              { 
+                                  width: "15px", 
+                                  marginRight: "8px",
+                                  color:"white" 
+                              }
+                          } />
+              Login</Link>
             </li>
           </ul>
         </div>
