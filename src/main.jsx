@@ -21,7 +21,7 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/register",
     element: (<Register/>),
   },
 
