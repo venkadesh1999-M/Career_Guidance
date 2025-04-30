@@ -57,7 +57,7 @@ function Login() {
             width: "500px",
             marginRight: "350px",
             borderRadius: "15px",
-            marginLeft: "500px",
+            marginLeft: "450px",
             marginTop: "60px",
             background: "transparent",
             boxShadow: "0 0 10px"

@@ -89,11 +89,6 @@ function Selfintro() {
     <div style={{marginLeft:"220px",marginTop:"30px"}}
         dangerouslySetInnerHTML={{ __html: summary }} 
     />
-
   </div>
-
-
-
-
 }
 export default Selfintro

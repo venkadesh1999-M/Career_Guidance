@@ -53,7 +53,6 @@ function QuestionAi(){
                     ...
                   ]
                 }`
-
        
           const result = await model.generateContent(prompt);
 

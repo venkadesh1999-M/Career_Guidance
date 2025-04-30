@@ -13,7 +13,7 @@ import Resume from './pages/Resume.jsx'
 import QuestionAi from './pages/quiz/QuestionAi.jsx'
 import Show from './pages/quiz/Show.jsx'
 import Selfintro from './pages/Selfintro.jsx'
-
+import Menupage from './pages/Menupage.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -21,10 +21,13 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/register",
     element: (<Register/>),
   },
-
+  {
+    path: "/",
+    element: (<Menupage />),
+  },
  {
     path: "/login",
     element: (<Login/>),

@@ -71,11 +71,11 @@ function Register() {
                     style={{ padding: "12px", marginTop: "9px", marginBottom: "12px" }}
                     placeholder="enter your name" onChange={(e) => setUser({ ...user, name: e.target.value.trimStart() })} required ></Form.Control>
                 Email
-                <Form.Control type="text"
+                <Form.Control type="email"
                     style={{ padding: "12px", marginTop: "9px", marginBottom: "12px" }}
                     value={user.email} placeholder="enter your email" onChange={(e) => setUser({ ...user, email: e.target.value.trimStart() })} required ></Form.Control>
                 Password
-                <Form.Control type="text"
+                <Form.Control type="password"
                     style={{ padding: "12px", marginTop: "9px", marginBottom: "12px" }}
                     value={user.password} placeholder="enter your password" onChange={(e) => setUser({ ...user, password: e.target.value.trimStart() })} required ></Form.Control>
                 <Button style={
